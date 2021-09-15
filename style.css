@@ -1,0 +1,74 @@
+
+html, body{
+    height:100%;
+    background: rgb(139,185,152);
+    background: linear-gradient(28deg, rgba(139,185,152,1) 0%, rgba(151,203,186,1) 35%, rgba(204,235,232,1) 100%);
+}
+
+.books{
+    height: 400px;
+    width: 220px;
+    background-color: red;
+    display: flex;
+    justify-items: center;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 3%;
+
+    animation-name: zoomIn;
+    animation-duration: 0.5s;
+} 
+
+@keyframes zoomIn{
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.80;
+    }
+    100% {
+         opacity: 1;
+    }
+}
+
+#booksContainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+#inputContainer{
+    height: 700px;
+    width: 500px;
+    background-color: blue;
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+}
+
+#bookInputForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.bookEntry{
+    overflow-wrap: anywhere;
+    max-width: 200px;
+}
+
+.bookStatus{
+    width:105px;
+    height: 30px;
+}
+.removeButton{
+    width: 105px;
+    height: 30px;
+}
