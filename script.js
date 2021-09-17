@@ -16,7 +16,6 @@ let library = [
 
 function storeLibrary(){
     localStorage.setItem("library", JSON.stringify(library));
-    console.log(localStorage.getItem("library"));
 }
 
 // Object constructor for creating books
@@ -25,9 +24,6 @@ function createBook(name, author, pages, status){
     this.author = author;
     this.pages = pages;
     this.status = status;
-    // this.info = function(){
-    //     return `${name} is written by ${author} and is ${pages} long. Status: ${status}`;
-    // }
 };
 
 function openForm(){
@@ -35,6 +31,7 @@ function openForm(){
 };
 
 function closeForm(){
+    document.getElementById("bookInputForm").reset();
     document.getElementById("inputContainer").style.display = "none";
 };
 
@@ -52,7 +49,6 @@ function addToLibrary(){
         let arrayTesting = new createBook(values[0], values[1], parseInt(values[2]), values[3]);
         library.push(arrayTesting);
 
-        document.getElementById("bookInputForm").reset();
         closeForm();
         initializeLibrary();
         storeLibrary();
@@ -74,6 +70,7 @@ function addToLibrary(){
 // Sorts through our library and adds the books to our page for display
 function initializeLibrary(){
     removeElementsByClass("books"); // Empties the page to repost elements
+    
     for(let i = 0; i <= library.length-1; i++){
             bookDoc[i] = document.createElement("div");
             // bookDoc[i].setAttribute("id", createID(library[i].name) + i);
@@ -90,13 +87,13 @@ function initializeLibrary(){
             bookAuthor[i] = document.createElement("p");
             bookAuthor[i].setAttribute("id", "bookAuthor" + i);
             bookAuthor[i].setAttribute("class", "bookEntry");
-            bookAuthor[i].innerHTML = library[i].author;
+            bookAuthor[i].innerHTML = `Author: ${library[i].author}`;
             bookDoc[i].appendChild(bookAuthor[i]);
 
             bookPages[i] = document.createElement("p");
             bookPages[i].setAttribute("id", "bookPages" + i);
             bookPages[i].setAttribute("class", "bookEntry");
-            bookPages[i].innerHTML = library[i].pages;
+            bookPages[i].innerHTML = `Pages: ${library[i].pages}`;
             bookDoc[i].appendChild(bookPages[i]);
 
             bookStatus[i] = document.createElement("button");
@@ -110,7 +107,6 @@ function initializeLibrary(){
             bookRemove[i].setAttribute("class", "removeButton");
             bookRemove[i].innerHTML = "Remove Book";
             bookDoc[i].appendChild(bookRemove[i]); 
-
     };
 };
 
@@ -119,15 +115,15 @@ function removeElementsByClass(className){
     const elements = document.getElementsByClassName(className);
     while(elements.length > 0){
         elements[0].parentNode.removeChild(elements[0]);
-    }
-}
+    };
+};
 
 // Checks for library item in local storage
 if(!localStorage.getItem('library')) {
     localStorage.setItem("library", JSON.stringify(library));
   } else {
     library = JSON.parse(localStorage.getItem("library"));
-  }
+  };
 
 // Initializes page at start
 initializeLibrary();
@@ -143,7 +139,6 @@ document.addEventListener('click', function(e) {
              library.splice(targetParent, 1);
              storeLibrary();
              initializeLibrary();
-             console.log("test");
          };
      };
 }, false);
@@ -167,3 +162,4 @@ document.addEventListener('click', function(e) {
          };
      };
 }, false);
+console.log("Made by MeeseGod for The Odin Project 🦌 (https://github.com/MeeseGod)");

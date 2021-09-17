@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
-<title>Library</title>
+<title>Library | By MeeseGod</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="style.css">
-<style></style>
+<link rel="icon" href="images/odin32x32.png">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+</style>
 <body>
+<div id="header">
+    <h1>Personal Library</h1>
+    <h2>Made by MeeseGod</h2>
+</div>
 <div id="booksContainer" class="container"></div>
-<button id="openFormButton" class="button" onclick="openForm()">Button</button>
+<button id="openFormButton" class="button" onclick="openForm()">+</button>
 
 <div id="inputContainer" class="container">
         <form id= "bookInputForm" onsubmit="getInput()">
             <label for="title"><b>Title</b></label>
-            <input type="text" placeholder="Enter the Book's title" name="title" required>
+            <input type="text" id="input1" placeholder="Enter the Book's title" name="title" required>
 
             <label for="author"><b>Author</b></label>
-            <input type="text" placeholder="Book's Author" name="author" required>
+            <input type="text" id="input2" placeholder="Book's Author" name="author" required>
 
             <label for="pages"><b>Pages</b></label>
-            <input type="number" placeholder="Number of Pages" name="pages" min="1" max="50000" required>
+            <input type="number" id="input3" placeholder="Number of Pages" name="pages" min="1" max="50000" required>
 
             <label for="haveRead" class="readRadio"><b>I have read this</b></label>
             <input type="radio" id="haveRead" class="readRadioInput" name="readStatus" value="Read">
@@ -26,7 +34,8 @@
             <label for="haveNotRead" class="readRadio"><b>I have not read this</b></label>
             <input type="radio" id="haveNotRead" class="readRadioInput" name="readStatus" value="Not Read" checked="checked">
 
-            <input type="button" value="Add to library" onclick="addToLibrary()">
+            <input type="button" id="formToLibrary" value="Add to library" onclick="addToLibrary()">
+            <input type="button" id="exitForm" value="Close Form" onclick="closeForm()">
         </form>
 </div>
 </body>
