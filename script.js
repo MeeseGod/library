@@ -19,12 +19,21 @@ function storeLibrary(){
 }
 
 // Object constructor for creating books
-function createBook(name, author, pages, status){
-    this.name = name;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
-};
+// function createBook(name, author, pages, status){
+//     this.name = name;
+//     this.author = author;
+//     this.pages = pages;
+//     this.status = status;
+// };
+
+class createBook{
+    constructor(name, author, pages, status){
+        this.name = name;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+    }
+}
 
 function openForm(){
     document.getElementById("inputContainer").style.display = "flex";
