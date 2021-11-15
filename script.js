@@ -171,4 +171,7 @@ document.addEventListener('click', function(e) {
          };
      };
 }, false);
+
+// const creationForm = document.getElementById("input1");
+
 console.log("Made by MeeseGod for The Odin Project 🦌 (https://github.com/MeeseGod)");
